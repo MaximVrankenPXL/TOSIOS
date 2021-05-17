@@ -23,4 +23,8 @@ pipeline {
             }
         }
     }
+  post {
+    always {
+      echo "remove"
+      sh "rm -rf test2"
 }
