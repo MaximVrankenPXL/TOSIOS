@@ -20,10 +20,12 @@ pipeline {
     }
     post {
         always {
-            sh "rm -rf test2"
+            //sh "rm -rf test2"
+            echo "removed folder"
         }
         success {
-            archiveArtifacts '*.zip'
+            //archiveArtifacts '*.zip'
+            echo "created artifact"
         }
     }
 }
