@@ -6,8 +6,9 @@ pipeline {
            sh "mkdir projectblue2"
            dir ("PROJECTBLUE - MET CREDENTIALS") {
              sh "pwd"
-           }
-        }
+             } 
+          }
+       }
         stage('2. create projectblue2') {
             steps {
               dir ("projectblue2") {
