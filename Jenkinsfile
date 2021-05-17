@@ -10,10 +10,10 @@ pipeline {
             }
           }
         }
-        stage('2. create projectblue') {
+        stage('2. create projectblue2') {
             steps {
               dir ("projectblue2") {
-                sh "mv ../* ../."
+                sh "mv ../* ../"
                 sh "mkdir ../bundle"
                 
               }
