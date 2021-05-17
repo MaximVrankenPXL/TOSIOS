@@ -4,6 +4,7 @@ pipeline {
        stage ('1. Make directory + move files') {
          steps {
            sh "mkdir projectblue2"
+           sh "cd PROJECTBLUE - MET CREDENTIALS/"
            sh "pwd"
           }
         }
