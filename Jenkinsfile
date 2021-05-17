@@ -30,8 +30,8 @@ pipeline {
     post {
         always {
             echo "removed folder" 
-            sh "rm -rf test2"
-            sh "rm -rf projectblue"
+            //sh "rm -rf test2"
+            //sh "rm -rf projectblue"
         }
         success {
             archiveArtifacts '*.zip'
