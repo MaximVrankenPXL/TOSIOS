@@ -6,14 +6,16 @@ pipeline {
            sh "mkdir projectblue2"
            dir ("projectblue2") {
               sh "pwd"
-              git "https://github.com/MaximVrankenPXL/TOSIOS.git"
+              //git "https://github.com/MaximVrankenPXL/TOSIOS.git"
             }
           }
         }
         stage('2. create projectblue') {
             steps {
               dir ("projectblue2") {
-                sh "mkdir ../bundle"  
+                sh "mv ./* ./."
+                sh "mkdir ../bundle"
+                
               }
               sh "zip -rq bundle.zip ./projectblue2"
             }
