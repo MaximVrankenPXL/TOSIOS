@@ -7,11 +7,6 @@ pipeline {
                 git credentialsId: 'ff18521d-0e16-4cc1-9e2b-c04385225281', url: 'https://github.com/MaximVrankenPXL/TOSIOS.git'
             }
         }
-        stage('install') {
-            steps {
-                echo "leeg"
-            }
-        }
         stage('test') {
             steps {
                 echo "leeg"
@@ -23,8 +18,8 @@ pipeline {
             }
         }
     }
-  post {
-    always {
-      echo "remove"
-      sh "rm -rf test2"
+    post {
+        always {
+            sh "rm -rf test2"
+        }
 }
