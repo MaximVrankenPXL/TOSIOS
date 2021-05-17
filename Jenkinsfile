@@ -17,7 +17,7 @@ pipeline {
                 echo "einde"
             }
         }
-        stage('package') {
+        stage('create projectblue') {
             steps {
               dir ("test2") {
                  sh "mkdir ../projectblue"   
