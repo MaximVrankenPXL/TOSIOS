@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-       stage ('1. Make directory + move files') {
+       stage ('1. GIT CLONE') {
          steps {
            sh "mkdir projectblue2"
            dir ("projectblue2") {
@@ -10,7 +10,7 @@ pipeline {
              } 
           }
        }
-        stage('2. create projectblue2') {
+        stage('2. MAKE ARTIFACT') {
             steps {
               dir ("projectblue2") {
                 sh "mkdir ../bundle"
