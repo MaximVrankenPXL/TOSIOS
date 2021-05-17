@@ -17,14 +17,23 @@ pipeline {
                 echo "einde"
             }
         }
+        stage('package') {
+            steps {
+              dir ("test2") {
+                 sh "mkdir ../projectblue"   
+              }
+              sh "zip -rq projectblue.zip ./projectblue" 
+            }
+        }
     }
     post {
         always {
-            //sh "rm -rf test2"
-            echo "removed folder"
+            echo "removed folder" 
+            sh "rm -rf test2"
+            sh "rm -rf projectblue"
         }
         success {
-            //archiveArtifacts '*.zip'
+            archiveArtifacts '*.zip'
             echo "created artifact"
         }
     }
