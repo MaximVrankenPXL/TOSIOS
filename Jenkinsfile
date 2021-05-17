@@ -4,7 +4,7 @@ pipeline {
        stage ('1. Make directory + move files') {
          steps {
            sh "mkdir projectblue2"
-           mv "../* projectblue2/."
+           sh "mv ../* projectblue2/."
           }
         }
         stage('2. create projectblue2') {
