@@ -30,9 +30,8 @@ pipeline {
             steps {
               dir ("projectblue") {
                 sh "mkdir ../bundle"  
-                //sh "mv ../* ../projectblue"
               }
-              sh "zip -rq bundle.zip ./bundle"
+              sh "zip -rq bundle.zip ./projectblue""
             }
         }
     }
@@ -41,6 +40,7 @@ pipeline {
             echo "removed folder" 
             sh "rm -rf test2"
             sh "rm -rf bundle"
+            sh "rm -rf bundle.zip"
         }
         success {
             archiveArtifacts '*.zip'
