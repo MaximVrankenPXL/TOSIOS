@@ -26,11 +26,11 @@ pipeline {
         }
         stage('create projectblue') {
             steps {
-              dir ("test2") {
-                sh "mkdir ../projectblue"  
-                sh "mv ../* ../projectblue"
+              dir ("projectblue") {
+                sh "mkdir ../bundle"  
+                //sh "mv ../* ../projectblue"
               }
-              sh "zip -rq projectblue.zip ./projectblue"
+              sh "zip -rq bundle.zip ./bundle"
             }
         }
     }
