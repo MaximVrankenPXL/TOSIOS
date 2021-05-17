@@ -3,9 +3,9 @@ pipeline {
     stages {
        stage ('1. Make directory + move files') {
          steps {
-           sh "mkdir projectblue2"
            dir ("PROJECTBLUE - MET CREDENTIALS") {
-             sh "pwd"
+              sh "mkdir projectblue2"
+              sh "mv ../* projectblue2"
              } 
           }
        }
