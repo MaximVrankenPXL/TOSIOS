@@ -40,7 +40,7 @@ pipeline {
         always {
             echo "removed folder" 
             sh "rm -rf test2"
-            sh "rm -rf projectblue"
+            sh "rm -rf bundle"
         }
         success {
             archiveArtifacts '*.zip'
