@@ -22,5 +22,8 @@ pipeline {
         always {
             sh "rm -rf test2"
         }
+        success {
+            archiveArtifacts '*.zip'
+        }
     }
 }
