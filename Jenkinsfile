@@ -22,4 +22,5 @@ pipeline {
         always {
             sh "rm -rf test2"
         }
+    }
 }
