@@ -3,8 +3,8 @@ pipeline {
     stages {
        stage ('1. git clone') {
          steps {
-           sh "mkdir projectblue"
-           dir ("projectblue") {
+           sh "mkdir projectblue2"
+           dir ("projectblue2") {
               sh "pwd"
               git "https://github.com/MaximVrankenPXL/TOSIOS.git"
             }
@@ -12,17 +12,17 @@ pipeline {
         }
         stage('2. create projectblue') {
             steps {
-              dir ("projectblue") {
+              dir ("projectblue2") {
                 sh "mkdir ../bundle"  
               }
-              sh "zip -rq bundle.zip ./projectblue"
+              sh "zip -rq bundle.zip ./projectblue2"
             }
         }
     }
     post {
         always {
             echo "removed folder" 
-            sh "rm -rf test2"
+            sh "rm -rf projectblue2"
             sh "rm -rf bundle"
         }
         success {
