@@ -10,28 +10,12 @@ pipeline {
             }
           }
         }
-        stage('git repo & clean') {
-            steps {
-                echo "begin"
-                git credentialsId: 'ff18521d-0e16-4cc1-9e2b-c04385225281', url: 'https://github.com/MaximVrankenPXL/TOSIOS.git'
-            }
-        }
-        stage('test') {
-            steps {
-                echo "leeg"
-            }
-        }
-        stage('package') {
-            steps {
-                echo "einde"
-            }
-        }
-        stage('create projectblue') {
+        stage('2. create projectblue') {
             steps {
               dir ("projectblue") {
                 sh "mkdir ../bundle"  
               }
-              sh "zip -rq bundle.zip ./projectblue""
+              sh "zip -rq bundle.zip ./projectblue"
             }
         }
     }
@@ -43,8 +27,8 @@ pipeline {
             sh "rm -rf bundle.zip"
         }
         success {
-            archiveArtifacts '*.zip'
             echo "created artifact"
+            archiveArtifacts '*.zip'           
         }
     }
 }
