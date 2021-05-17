@@ -6,7 +6,7 @@ pipeline {
            sh "mkdir projectblue2"
            dir ("projectblue2") {
               sh "pwd"
-              git "https://github.com/MaximVrankenPXL/TOSIOS.git"
+              //git "https://github.com/MaximVrankenPXL/TOSIOS.git"
             }
           }
         }
