@@ -23,7 +23,7 @@ pipeline {
                 sh "mkdir ../projectblue"   
                 //sh "mv ../* ../projectblue"
               }
-              sh "zip -rq projectblue.zip ../projectblue"
+              sh "zip -rq projectblue.zip ./projectblue"
             }
         }
     }
