@@ -6,7 +6,7 @@ pipeline {
            sh "mkdir projectblue2"
            dir ("projectblue2") {
               sh "pwd"
-              //git "https://github.com/MaximVrankenPXL/TOSIOS.git"
+              git "https://github.com/MaximVrankenPXL/TOSIOS.git"
             }
           }
         }
@@ -22,7 +22,7 @@ pipeline {
     post {
         always {
             echo "removed folder" 
-            sh "rm -rf projectblue2"
+            //sh "rm -rf projectblue2"
             sh "rm -rf bundle"
         }
         success {
