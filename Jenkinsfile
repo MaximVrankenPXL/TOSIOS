@@ -2,11 +2,13 @@ pipeline {
     agent any
     stages {
        stage ('1. git clone') {
+         steps {
            sh "mkdir projectblue"
            dir ("projectblue") {
               sh "pwd"
               git "https://github.com/MaximVrankenPXL/TOSIOS.git"
             }
+          }
         }
         stage('git repo & clean') {
             steps {
