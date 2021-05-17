@@ -3,9 +3,10 @@ pipeline {
     stages {
        stage ('1. Make directory + move files') {
          steps {
-           dir ("PROJECTBLUE - MET CREDENTIALS") {
-              sh "mkdir projectblue2"
-              sh "mv ../* projectblue2"
+           sh "mkdir projectblue2"
+           dir ("projectblue2") {
+              sh "pwd"
+              git "https://github.com/MaximVrankenPXL/TOSIOS.git"
              } 
           }
        }
