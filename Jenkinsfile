@@ -24,7 +24,6 @@ pipeline {
             echo "removed folder" 
             sh "rm -rf test2"
             sh "rm -rf bundle"
-            sh "rm -rf bundle.zip"
         }
         success {
             echo "created artifact"
