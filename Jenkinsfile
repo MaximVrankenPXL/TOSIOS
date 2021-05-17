@@ -21,8 +21,6 @@ pipeline {
             steps {
               dir ("test2") {
                 sh "mkdir ../projectblue"  
-                sh "rm -rf test2"
-                sh "rm -rf test2@tmp"
                 sh "mv ../* ../projectblue"
               }
               sh "zip -rq projectblue.zip ./projectblue"
