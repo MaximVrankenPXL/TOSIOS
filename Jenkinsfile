@@ -3,31 +3,32 @@ pipeline {
     stages {
        stage ('1. GIT CLONE') {
          steps {
-           sh "mkdir projectblue2"
-           dir ("projectblue2") {
-              sh "pwd"
-              git "https://github.com/MaximVrankenPXL/TOSIOS.git"
-             } 
+              git url: "https://github.com/2TIN-Research-Project-SNB/research-project-snb2-rp2021.git"
           }
        }
-        stage('2. MAKE ARTIFACT') {
+       stage('2. MAKE ARTIFACT') {
             steps {
-              dir ("projectblue2") {
-                sh "mkdir ../bundle"
+              script {
+                myapp = docket.build("frederickdetrezpxl/dungeonkill:${env.BUILD_ID}")
               }
-              sh "zip -rq bundle.zip ./projectblue2"
             }
         }
-    }
-    post {
-        always {
-            echo "removed folder" 
-            sh "rm -rf projectblue2"
-            sh "rm -rf bundle"
+       stage('3. PUSH ARTIFACT') {
+            steps {
+              script {
+                docket.withRegistry('https://registry.hub.docker.com','dockerhub') {
+                  myapp.push("latest");
+                  myapp.push("${env.BUILD_ID}");
+              }
+            }
         }
-        success {
-            echo "created artifact"
-            archiveArtifacts '*.zip'           
+       stage('4. DEPLOY ARTIFACT') {
+            steps {
+              script {
+                kubernetesDeploy(configs: "dungeonkill_dep.yml", kubeconfigId: "mykubeconfig")
+              }
+            }
         }
+        
     }
 }
